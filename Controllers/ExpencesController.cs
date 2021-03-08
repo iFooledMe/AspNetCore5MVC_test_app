@@ -34,9 +34,88 @@ namespace AspNetCore5MVC_test_app.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CreateExpence(Expence obj)
         {
-            _db.Expences.Add(obj);
+            if (ModelState.IsValid)
+            {
+                _db.Expences.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(obj);
+
+        }
+
+        //GET-Delete
+        public IActionResult DeleteExpence(int? id) //? = optional value
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var obj = _db.Expences.Find(id);
+
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+
+        }
+
+        //POST-Delete
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteExpencePost(int? id) //? = optional value
+        {
+            var obj = _db.Expences.Find(id);
+
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            _db.Expences.Remove(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
+
+        }
+
+
+        //GET-Update
+        public IActionResult UpdateExpence(int? id) //? = optional value
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var obj = _db.Expences.Find(id);
+
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+
+        }
+
+        //POST-Update
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateExpence(Expence obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Expences.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(obj);
+
         }
     }
 }

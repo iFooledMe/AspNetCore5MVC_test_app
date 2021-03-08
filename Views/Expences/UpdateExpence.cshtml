@@ -1,10 +1,11 @@
 ﻿@model AspNetCore5MVC_test_app.Models.Expence
 
-<form method="post" asp-action="CreateExpence">
+<form method="post" asp-action="UpdateExpence">
+    <input asp-for="Id" hidden />
     <div class="border p-3">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
-            <h2 class="text-black-50 pl-3">Add Expence</h2>
+            <h2 class="text-black-50 pl-3">Update Expence</h2>
         </div>
         <div class="row">
             <div class="col-12">
@@ -31,7 +32,7 @@
                         <a class="btn btn-secondary d-block w-100 text-white" asp-action="Index">Back</a>
                     </div>
                     <div class="col-6">
-                        <input type="submit" class="btn btn-secondary d-block w-100 text-white" value="Create" />
+                        <input type="submit" class="btn btn-secondary d-block w-100 text-white" value="Update" />
                     </div>
                 </div>
             </div>
@@ -40,7 +41,9 @@
 </form>
 
 @section Scripts{
-    @{<partial name="_ValidationScriptsPartial" /> }
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
 
- } 
+}
 

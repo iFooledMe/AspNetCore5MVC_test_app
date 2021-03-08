@@ -24,19 +24,31 @@
                     <th>
                         Sum
                     </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@item.Item</td>
-                        <td>@item.Sum</td>
-                    </tr>
+                <tr>
+                    <td>@item.Item</td>
+                    <td>@item.Sum</td>
+                    <td width="20%" class="text-right">
+                        <div class="w-100 btn-group" role="group">
+                            <a class="btn btn-primary text-white mx-1" asp-area="" asp-controller="Expences" asp-action="UpdateExpence" asp-route-Id="@item.Id">Edit</a>
+                            <a class="btn btn-danger text-white mx-1" asp-area="" asp-controller="Expences" asp-action="DeleteExpence" asp-route-Id="@item.Id">Delete</a>
+                        </div>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
     }
+    else 
+    {
+        <p class="pt-5 mt-5">No Expences Added yet!</p>
+    }
+
 
 
 

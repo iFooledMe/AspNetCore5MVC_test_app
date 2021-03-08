@@ -13,8 +13,11 @@ namespace AspNetCore5MVC_test_app.Models
         public int Id { get; set; }
 
         [DisplayName("Expence Description")]
+        [Required]
         public string Item { get; set; }
 
-        public double Sum { get; set; }
+        [Required]
+        [Range(100, int.MaxValue, ErrorMessage = "Must be over 100!")]
+        public int Sum { get; set; }
     }
 }
