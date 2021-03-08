@@ -1,0 +1,44 @@
+﻿@model AspNetCore5MVC_test_app.Models.Item
+
+<form method="post" asp-action="CreateItem">
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Add Item</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label class="text-uppercase" asp-for="Name"></label>
+                    </div>
+                    <div class="col-4">
+                        <label class="text-uppercase" asp-for="Borrower"></label>
+                    </div>
+                    <div class="col-4">
+                        <label class="text-uppercase" asp-for="Lender"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Name" class="form-control"/>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Borrower" class="form-control" />
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Lender" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row pt-3">
+                    <div class="col-6">
+                        <a class="btn btn-secondary d-block w-100 text-white" asp-action="Index">Back</a>
+                    </div>
+                    <div class="col-6">
+                        <input type="submit" class="btn btn-secondary d-block w-100 text-white" value="Add Item" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

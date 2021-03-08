@@ -7,17 +7,14 @@ using System.Threading.Tasks;
 
 namespace AspNetCore5MVC_test_app.Models
 {
-    public class Item
+    public class Expence
     {
         [Key]
         public int Id { get; set; }
 
-        [DisplayName("Item")]
-        public string Name { get; set; }
+        [DisplayName("Expence Description")]
+        public string Item { get; set; }
 
-        public string Borrower { get; set; }
-
-        public string Lender { get; set; }
-
+        public double Sum { get; set; }
     }
 }

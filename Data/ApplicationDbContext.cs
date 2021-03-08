@@ -16,5 +16,7 @@ namespace AspNetCore5MVC_test_app.Data
 
         public DbSet<Item> Items { get; set; }
 
+        public DbSet<Expence> Expences { get; set; }
+
     }
 }

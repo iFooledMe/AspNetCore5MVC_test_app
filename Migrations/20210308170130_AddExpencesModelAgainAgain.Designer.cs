@@ -3,14 +3,16 @@ using AspNetCore5MVC_test_app.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AspNetCore5MVC_test_app.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210308170130_AddExpencesModelAgainAgain")]
+    partial class AddExpencesModelAgainAgain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,7 +30,7 @@ namespace AspNetCore5MVC_test_app.Migrations
                     b.Property<string>("Item")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Sum")
+                    b.Property<double>("sum")
                         .HasColumnType("float");
 
                     b.HasKey("Id");

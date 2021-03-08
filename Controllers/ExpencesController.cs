@@ -8,24 +8,23 @@ using System.Threading.Tasks;
 
 namespace AspNetCore5MVC_test_app.Controllers
 {
-    public class ItemController : Controller
+    public class ExpencesController : Controller
     {
-
         private readonly ApplicationDbContext _db;
 
-        public ItemController(ApplicationDbContext db)
+        public ExpencesController(ApplicationDbContext db)
         {
             _db = db;
         }
-        
+
         public IActionResult Index()
         {
-            IEnumerable<Item> itemsList = _db.Items;
-            return View(itemsList);
+            IEnumerable<Expence> expenceList = _db.Expences;
+            return View(expenceList);
         }
 
         //GET-Create
-        public IActionResult CreateItem()
+        public IActionResult CreateExpence()
         {
             return View();
         }
@@ -33,9 +32,9 @@ namespace AspNetCore5MVC_test_app.Controllers
         //POST-Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateItem(Item obj)
+        public IActionResult CreateExpence(Expence obj)
         {
-            _db.Items.Add(obj);
+            _db.Expences.Add(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
